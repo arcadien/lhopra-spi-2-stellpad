@@ -52,8 +52,6 @@ extern unsigned long __STACK_TOP;
 // External declaration for the interrupt handler used by the application.
 //
 //*****************************************************************************
-extern void USB_UARTIntHandler(void);
-extern void BT_UARTIntHandler(void);
 extern void SPIIntHandler(void);
 
 //*****************************************************************************
@@ -88,8 +86,8 @@ void (* const g_pfnVectors[])(void) =
     IntDefaultHandler,                      // GPIO Port C
     IntDefaultHandler,                      // GPIO Port D
     IntDefaultHandler,                      // GPIO Port E
-    USB_UARTIntHandler,                         // UART0 Rx and Tx
-    BT_UARTIntHandler,                         // UART1 Rx and Tx
+    IntDefaultHandler,                         // UART0 Rx and Tx
+    IntDefaultHandler,                         // UART1 Rx and Tx
     SPIIntHandler,            	            // SSI0 Rx and Tx
     IntDefaultHandler,                      // I2C0 Master and Slave
     IntDefaultHandler,                      // PWM Fault
